@@ -13,7 +13,7 @@
 <p align="center">
 <img alt="badge typescript" src=".github\badge-typescript.svg">
 <img alt="badge node" src=".github\badge-node.svg">
-<img alt="badge npm" src=".github\badge-npm.svg">
+<img alt="badge yarn" src=".github\yarn.svg">
 <img alt="badge npm" src=".github\sqlite.svg">
 <img alt="badge react" src=".github\badge-react.svg">
 <img alt="badge react native" src=".github\rnative.svg">
