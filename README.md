@@ -6,10 +6,6 @@
    Next Level Week 2.0 | <img alt="badge rocketseat" align="center" src=".github\rocket.svg">
 </h2>
 
-<p align="center">🚧 Em andamento 🚧</p>
-
----
-
 <p align="center">
 <img alt="badge typescript" src=".github\badge-typescript.svg">
 <img alt="badge node" src=".github\badge-node.svg">
@@ -33,6 +29,10 @@
 <img alt="Repository size" src="https://img.shields.io/github/repo-size/angelicaalbuquerque/proffy_nlw02-rocketseat?color=6942c3">
 <img alt="Last commit on GitHub" src="https://img.shields.io/github/last-commit/angelicaalbuquerque/proffy_nlw02-rocketseat?color=6942c3">
 </p>
+
+<p align="center">🚧 Em andamento 🚧</p>
+
+---
 
 <p align="center">
   <a href="#-next-level-week">Next Level Week</a>&nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
@@ -60,12 +60,39 @@ Um experiência online e totalmente gratuita para evoluir as habilidades em prog
 
 Nessa edição, feita entre os dias 3 e 9 de agosto de 2020, o foco foi o universo JavaScript: a tecnologia essencial para todos os devs que trabalham ou pretendem trabalhar com web.
 
+Desenvolvemos a _Proffy_, plataforma de estudos online, que conecta alunos e professores para EAD.
+
 ### 📚 Grade do curso
 
 <details>
-  <summary>Aula 01 | Acelerando a sua Evolução </summary>
+  <summary>Aula 01 | ReactJS e estrutura Web </summary>
 
-- Nessa primeira aula do NLW #2, você vai conhecer o método que vai acelerar a sua evolução em direção aos seus maiores objetivos como programador. Entraremos em detalhes, conhecendo cada pilar desse método e como você pode utiliza-lo para ir direto ao ponto, na direção certa.
+Acelerando a sua Evolução: Nessa primeira aula do NLW #2, você vai conhecer o método que vai acelerar a sua evolução em direção aos seus maiores objetivos como programador. Entraremos em detalhes, conhecendo cada pilar desse método e como você pode utiliza-lo para ir direto ao ponto, na direção certa.
+
+- Apresentação do projeto;
+- Ambiente de desenvolvimento;
+- Conceitos do ReactJS;
+  - Interfaces
+  - Construção de SPAs
+  - React/ ReactJS / React Native / ReactVR / ReactTV...
+- Criação do projeto;
+- Limpeza de estrutura;
+- Explicação de conceitos;
+  - index.html e div#root
+  - JSX
+  - Componentes
+  - Propriedade
+  - Estado
+- Criação de estilos globais;
+- Criação da estrutura da landing page;
+- Estilização da landing page;
+- Configuração de navegação do app;
+- Estruturação de listagem de professores;
+- Estilização da listagem de professores;
+- Criação de componentes comuns;
+- Estruturação da página de cadastro;
+- Estilização da página de cadastro;
+- Preparação de cadastro de horários.
 
 </details>
 
@@ -102,9 +129,13 @@ Nessa edição, feita entre os dias 3 e 9 de agosto de 2020, o foco foi o univ
 
 ## 💻 Projeto
 
-Desenvolvimento de uma plataforma de estudos online, onde é possível tanto se cadastrar como instrutor quanto encontrar vários professores para ensinar.
+<div align="center">
+    <img src=".github\capa.png" width="60%"/>
+</div>
 
-Projeto desenvolvido durante a Trilha OmniStack, desenhada para quem já domina o JavaScript, o CSS e o HTML, e tem uma boa base de SQL, ou seja, para quem já desenvolveu aplicações para web. Essa trilha foi guiada pelo instrutor Diego Fernandes, CTO da Rocketseat.
+Para celebrar o Dia Nacional do Profissional de Educação (06 de Agosto), o projeto desenvolvido foi uma plataforma de estudos online, onde é possível tanto se cadastrar como instrutor quanto encontrar vários professores para ensinar.
+
+Construído utilizando a metodologia _mobile-first_, esse projeto foi desenvolvido durante a Trilha OmniStack, desenhada para quem já domina o JavaScript, o CSS e o HTML, e tem uma boa base de SQL, ou seja, para quem já desenvolveu aplicações para web. Essa trilha foi guiada pelo instrutor Diego Fernandes, CTO da Rocketseat.
 
 ### Web
 
@@ -139,20 +170,57 @@ O projeto foi desenvolvido com as seguintes tecnologias:
 <details>
   <summary>Backend</summary>
 
-- Em breve.
+- [Node.js](https://nodejs.org/)
+- [Express](https://expressjs.com/)
+- [Typescript](https://www.typescriptlang.org/)
+- [TS-Node-Dev](https://www.npmjs.com/package/ts-node-dev)
+- [Celebrate](https://github.com/arb/celebrate)
+- [Cors](https://www.npmjs.com/package/cors)
+- [Hapi/Joi](https://www.npmjs.com/package/@types/hapi__joi)
+- [Multer](https://www.npmjs.com/package/multer)
+- [SQLite3](https://www.sqlite.org/index.html)
+- [KnexJS](http://knexjs.org/)
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+- [VS Code](https://code.visualstudio.com/)
 </details>
 
 <details>
   <summary>Frontend</summary>
 
-- Em breve.
+- [Axios](https://www.npmjs.com/package/axios)
+- [Typescript](https://www.typescriptlang.org/)
+- [React](https://pt-br.reactjs.org/)
+- [React Dropzone](https://github.com/react-dropzone/react-dropzone)
+- [React Icons](https://react-icons.netlify.com/#/)
+- [React Router](https://www.npmjs.com/package/react-router-dom)
+- [React Leaflet](https://react-leaflet.js.org/)
+- [Leaflet](https://leafletjs.com/)
+- [Expo MailComposer](https://docs.expo.io/versions/latest/sdk/mail-composer/)
+- [Expo](https://expo.io/)
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+- [VS Code](https://code.visualstudio.com/)
 
 </details>
 
 <details>
   <summary>Mobile</summary>
 
-- Em breve.
+- [Axios](https://www.npmjs.com/package/axios)
+- [Typescript](https://www.typescriptlang.org/)
+- [Expo](https://expo.io/learn)
+- [Expo Google Fonts](https://github.com/expo/google-fonts)
+- [Expo Location](https://docs.expo.io/versions/latest/sdk/location/)
+- [Expo Mail Composer](https://docs.expo.io/versions/latest/sdk/mail-composer/)
+- [React](https://pt-br.reactjs.org/)
+- [React Native](https://reactnative.dev/)
+- [React Navigation](https://reactnavigation.org/)
+- [React Native Appearance](https://github.com/expo/react-native-appearance)
+- [React Native Picker Select](https://www.npmjs.com/package/react-native-picker-select)
+- [ESLint](https://eslint.org/)
+- [Prettier](https://prettier.io/)
+- [VS Code](https://code.visualstudio.com/)
 
 </details>
 
