@@ -114,6 +114,12 @@ Class é uma palavra reservada do JavaScript, ela serve para definirmos uma clas
 
 Por isso, no React, sempre que formos utilizar classes no HTML temos que utilizar className.
 
+#### sempre colocar "./" quando for arquivo criado por mim:
+
+Caso contrário, o React vai entender que é algum pacote instalado, como o próprio React.
+
+Sempre que for um arquivo criado por mim, que está na minha estrutura e não no node_modules, passo o caminho relativo.
+
 #### Propriedade:
 
 #### Estado:
