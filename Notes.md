@@ -1,4 +1,4 @@
-## Anotações
+# Anotações
 
 #### React:
 
@@ -21,7 +21,7 @@ Na Web, por exemplo, tem a biblioteca React DOM, que faz o React entender que a 
 
 Forma de adicionar tipagem ao código Javascript, auxiliando a produtividade, aumentando a experiência de desenvolvimento.
 
-### Estrutura que vem no projeto React
+## Estrutura que vem no projeto React
 
 #### .gitignore:
 
@@ -82,6 +82,37 @@ Quando trabalhamos com a sintaxe de HTML dentro do JavaScript, chama-se JSX, que
 #### TSX:
 
 Typescript com XML.
+
+### Imagens no React:
+
+Temos sempre que importá-las e nomeá-las com uma variável. Para passar no código HTML, no src, devemos passar entre {}.
+
+```Javascript
+import React from "react";
+
+import logoImg from "../../assets/images/logo.svg";
+
+function Landing() {
+  return (
+    <div id="page-landing">
+      <div id="page-landing-content" className="container">
+        <div className="logo-container">
+          <img src={logoImg} alt="logotipo Proffy" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+export default Landing;
+
+```
+
+#### class x classname:
+
+Class é uma palavra reservada do JavaScript, ela serve para definirmos uma classe.
+
+Por isso, no React, sempre que formos utilizar classes no HTML temos que utilizar className.
 
 #### Propriedade:
 
