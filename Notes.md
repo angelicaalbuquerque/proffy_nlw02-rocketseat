@@ -73,6 +73,8 @@ Nome do componente começa SEMPRE com letra maiúscula, pois as minúsculas são
 
 Toda vez que formos trabalhar com HTML, precisamos, obrigatoriamente, importar o react dentro do código, mesmo que ele não esteja sendo utilizado.
 
+Resumo: Componente é uma função com a primeira letra maiúscula que retorna um HTML.
+
 #### JSX:
 
 Quando trabalhamos com a sintaxe de HTML dentro do JavaScript, chama-se JSX, que é JavaScript + XML. XML é a sintaxe do XML. Em resumo, JSX é o HTML dentro do JavaScript.
@@ -108,7 +110,7 @@ npx create-react-app web --template typescript
 #### Web
 
 ```
-yarn start ou npm start
+yarn start
 ```
 
 ou
