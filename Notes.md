@@ -261,6 +261,10 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
 export default PageHeader;
 ```
 
+##### props.children:
+
+Propriedade automática do React que é qual conteúdo que escrevi dentro do componente.
+
 #### Estado:
 
 ---
