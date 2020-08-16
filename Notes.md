@@ -75,6 +75,10 @@ Toda vez que formos trabalhar com HTML, precisamos, obrigatoriamente, importar o
 
 Resumo: Componente é uma função com a primeira letra maiúscula que retorna um HTML.
 
+#### {}:
+
+Utilizado para quando quisermos incluir JavaScript dentro da estrutura HTML.
+
 #### JSX:
 
 Quando trabalhamos com a sintaxe de HTML dentro do JavaScript, chama-se JSX, que é JavaScript + XML. XML é a sintaxe do XML. Em resumo, JSX é o HTML dentro do JavaScript.
@@ -122,11 +126,146 @@ Sempre que for um arquivo criado por mim, que está na minha estrutura e não no
 
 #### Propriedade:
 
+Atributos que passamos para uma tag. Por exemplo, no HTML, o button tem um type. No React, é exatamente isso, quando passamos um atributo para o componente e não para um elemento HTML.
+
+É uma forma de eu conseguir passar informações para o componente. Por exemplo, um Header com dois títulos diferentes:
+
+```TS
+function TeacherForm() {
+  return (
+    <div id="page-teacher-form" className="container">
+      <PageHeader title="Que incrível que você quer dar aulas." />
+    </div>
+  );
+}
+```
+
+```TS
+function TeacherList() {
+  return (
+    <div id="page-teacher-list" className="container">
+      <PageHeader title="Estes são os proffys disponíveis." />
+    </div>
+  );
+}
+```
+
+Importanto que, nesse caso, precisamos adicionar tipagem para essas propriedades, por exemplo, é um texto e é obrigatória.
+
+Para isso, transformamos a função PageHeader em uma constante:
+
+```TS
+const PageHeader = () => {
+  return (
+    <header className="page-header">
+      <div className="top-bar-container">
+        <Link to="/">
+          <img src={backIcon} alt="Volta" />
+        </Link>
+        <img src={logoImg} alt="Proffy logo" />
+      </div>
+
+      <div className="header-content">
+        <strong> Estes são os proffys disponíveis.</strong>
+      </div>
+    </header>
+  );
+};
+```
+
+Para falar que o PageHeader pode receber uma propriedade chamada title, que vai ser uma string obrigatória, é utilizado o conceito de _interface_.
+
+```TS
+interface PageHeaderProps {
+  title: string;
+}
+```
+
+E para que esse conceito seja aplicado e o componente saiba que tem que usar a propriedade title, é necessário que o componente seja definido com o tipo React.FunctionComponent ou React.FC, que recebe um _**parâmetro (chamado de generic)**_, ou seja, a nossa interface:
+
+```TS
+import React from "react";
+
+import { Link } from "react-router-dom";
+
+import logoImg from "../../assets/images/logo.svg";
+import backIcon from "../../assets/images/icons/back.svg";
+
+interface PageHeaderProps {
+  title: string;
+}
+
+const PageHeader: React.FC<PageHeaderProps> = (props) => {
+  return (
+    <header className="page-header">
+      <div className="top-bar-container">
+        <Link to="/">
+          <img src={backIcon} alt="Voltar" />
+        </Link>
+        <img src={logoImg} alt="Proffy logo" />
+      </div>
+
+      <div className="header-content">
+        <strong>Estes são os proffys disponíveis.</strong>
+      </div>
+    </header>
+  );
+};
+
+export default PageHeader;
+```
+
+_Tenho um componente, PageHeader, ele é um FunctionComponent, do React, e as propriedades que ele tem/pode receber são PageHeaderProps._
+
+##### Interface:
+
+Conceito utilizado para definir um formato das tipagens de um objeto.
+
+##### React.FunctionComponent ou React.FC.:
+
+Componente escrito em forma de função. Esse componente recebe um **parâmetro (generic)**.
+
+##### props:
+
+Para recuperar os títulos presentes nas páginas TeacherForm e TeacherList, substituindo, assim, o que está fixado na div className="header-content", faço com que todas as propriedades sejam recebidas como parâmetro.
+
+```TS
+import React from "react";
+
+import { Link } from "react-router-dom";
+
+import logoImg from "../../assets/images/logo.svg";
+import backIcon from "../../assets/images/icons/back.svg";
+
+interface PageHeaderProps {
+  title: string;
+}
+
+const PageHeader: React.FC<PageHeaderProps> = (props) => {
+  return (
+    <header className="page-header">
+      <div className="top-bar-container">
+        <Link to="/">
+          <img src={backIcon} alt="Voltar" />
+        </Link>
+        <img src={logoImg} alt="Proffy logo" />
+      </div>
+
+      <div className="header-content">
+        <strong>{props.title}</strong>
+      </div>
+    </header>
+  );
+};
+
+export default PageHeader;
+```
+
 #### Estado:
 
 ---
 
-## Comandos
+## Comandos e Instalações
 
 Criando o projeto web react:
 
@@ -138,6 +277,43 @@ ou
 
 ```
 npx create-react-app web --template typescript
+```
+
+#### React router dom:
+
+Módulo mais utilizado na Web para criar navegação. Com ele, conseguimos controlar qual página/qual componente está ativo, baseado no endereço que o usuário está acessando.
+
+```
+yarn add react-router-dom
+```
+
+Quando a importação do react-router-dom durante a criação do arquivo routes.tsx nao for reconhecida, significa que, se estou usando TypeScript, alguns módulos não são feitos nativamente em TypeScript, sem incluir suas definições de tipos para entender o que tem dentro desse pacote.
+
+Solução:
+
+```
+yarn add @types/react-router-dom -D
+```
+
+_Quando for um pacote de types/tipagem, ele pode ser instalado apenas como dependência de desenvolvimento._
+
+##### Roteamento
+
+Importamos no componente routes.tsx BrowserRouter (tipo de roteamento) e Route (significa cada uma das rotas dentro da aplicação, cada página será um route, que será envolvido pelo BrowserRouter).
+
+O Route recebe duas propriedades obrigatórias: o path (endereço que o user precisa acessar a tela através do browser) e o component.
+
+Quando queremos utilizar "/" para representar a rota raiz, é importante ustilizar também "exact", se não, ao acessar uma rota como "/study", vai mostrar a rota raiz ("/") + a rota study, já que o React Router Dom não faz a verificação de igualdade, ou seja, se o caminho acessado é igual ao do path, ele verifica o conteúdo: se o caminho contém o que eu coloquei no path, é o que será mostrado.
+
+##### Link to
+
+Para manter o conceito de SPA, ou seja, sem ter que recarregar tudo ao acessar uma href, importo do React Router Dom o Link e mudo a tag '< a >', utilizando _Link to_:
+
+```TS
+<Link to="/study" className="study">
+  <img src={studyIcon} alt="Estudar" />
+   Estudar
+</Link>
 ```
 
 ---
