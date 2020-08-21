@@ -57,6 +57,10 @@
   position: relative;
 }
 
+#search-teachers .input-block + .input-block {
+  margin-top: 1.4rem;
+}
+
 #search-teachers .input-block label {
   font-size: 1.4rem;
 }
@@ -83,5 +87,3 @@
   right: 1.6rem;
   bottom: 0;
 }
-
-/* focus-within: verifica se dentro do input-block existe um input que tenha um focus. Se sim, vai estilizar o input-block e não o input. */
