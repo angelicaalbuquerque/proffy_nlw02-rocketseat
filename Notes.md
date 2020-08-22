@@ -371,11 +371,7 @@ Para manter o conceito de SPA, ou seja, sem ter que recarregar tudo ao acessar u
 </Link>
 ```
 
-**2) Criando o projeto Node JS:**
-
-```
-yarn create react-app web --template typescript
-```
+**2) Criando o projeto (server) Node JS:**
 
 ---
 
@@ -394,3 +390,15 @@ npm start
 ```
 
 _roda na http://localhost:3000/_
+
+#### Server
+
+```
+yarn init -y
+```
+
+ou
+
+```
+npm init -y
+```
