@@ -267,11 +267,66 @@ Propriedade automática do React que é qual conteúdo que escrevi dentro do com
 
 #### Estado:
 
+Em breve.
+
+## Conceitos do Backend
+
+<div align="center">
+    <img src=".github\como-funciona-o-back-end.png" width="100%"/>
+</div>
+
+#### MVC x API Rest:
+
+MVC é uma maneira tradicional de construção de backend que retorna o HTML junto do backend, feito muito no PHP, por exemplo. Mas utilizando React, não faz mais sentido utilizar dessa forma.
+
+#### Como funciona o backend:
+
+Existem no mínimo duas sessões na aplicação: Front-end e Back-end. O Front é tudo aquilo que o usuário interage -- um clique no botão, o HTML, o CSS. E tudo que não enxergamos é feito no Back-end.
+
+Imagina que você vai a um restaurante. Você vai lidar com o front-end: as mesas, os garçons e pede um prato. O garçom leve seu pedido à cozinha, a cozinha começa a processar o seu pedido e assim que tiver finalizado, ele retorna ao front-end: o garçom e a sua mesa.
+
+E asim que funciona. O Front-end vai enviar uma mensagem através do protocolo HTTP e nesse protocolo, dentro dessa mensagem, terão algumas informações.
+
+No geral, a mensagem é formada por cabeçalho e corpo:
+
+- Cabeçalho: informações para definir o tipo da mensagem, se é para criar, deletar, editar, buscar... São os metadados da mensagem;
+- Corpo é real conteúdo da requisição/mensagem. Imagine que estamos fazendo uma requisição de envio de formulário, como o cadastro de um novo ususário. Dentro do corpo, vão todos os seus dados, como Nome, E-mail, Senha, Avatar.
+
+O Back-end recebe essa mensagem e pode fazer algumas operações, como salvar o usuário no banco de dados, enviar um e-mail ao usuário recém cadastrado, criptografar a senha do usuário...
+
+Isso tudo acontece no back-end porque, por exemplo, pra salvar o usuário no banco de dados, eu preciso das credenciais do banco de dados, estas não ficam no front-end, pois é a parte visual, é o que aparece pro usuário. Se eu colocar as credencias no front-end, o usuário teria acesse a ela. Em resumo, são tarefas que o usuário não pode ter acesso, pois são sigilosas.
+
+Depois do Back-end finalizar o que tem que fazer, ele devolve uma resposta, também via HTTP, com cabeçalho e corpo. "Antigamente", o back-end retornava o HTML completo da página da lista de usuários.
+
+O problema disso, de retornar HTML, é que torna as respostas muito pesadas, por não trazeram apenas os dados e sim TODO o conteúdo que precisa ser apresentado na tela. E quando retornarmos o HTML do Back-end é o browser, mas se criarmos um aplicativo móvel, eles não entenderão o HTML, seja ele feito em Kotlin, Swift, React Native, Flutter.
+
+Como o aplicativo móvel não entende o HTML, ele também fará uma requisição ao Back-end, também via HTTP, com cabeçalho e corpo. O Back-end também vai retornar a estrutura HTML e, para converter para uma interface nativa, seria muito trabalhoso.
+
+E aí entramos nas particularidades da API Rest.
+
+#### Particularidades da API Rest:
+
+Uma API Rest, em vez de retornar o HTML completo da lista de usuários, vai retornar apenas os dados dessa lista de usuários.
+
+É utilizada uma estrutura JSON (JavaScript Object Notation) em vez de HTML. Ele é um objeto escrito da mesma forma que a gente escreve no JS, então, quando requisitarmos ao Backend, vamos retornar apenas os dados do usuário, que são retornados no formato de JSON.
+
+O JSON é uma estrutura que todas as linguagens/tecnologias conseguem entender e essas próprias tecnologias vão fazer a construção da parte visual (HTML).
+
+#### Por que utilizar Node.js?
+
+Conseguimos ter o mesmo JavaScript que utilizamos no front-end e no mobile dentro do Back-end, além de ser uma tecnologia bastante utilizada por diversas empresas, sendo extremamente performáticas.
+
+A plataforma Node tem como uma das suas principais particularidades o **_non-blocking IO_**: o que acontece em linguagens como Ruby e PHP é que quando a gente executa uma ação, por mais que ela leve um tempo para ser executada, a próxima linha nunca executa antes da linha anterior ser finalizada. Dentro do Node temos um controle de assincronismo, conseguimos, por exemplo, enviar um e-mail e enquanto ele é enviado, conseguimos fazer outras operações no back-end sem problema algum, ou seja, consigo salvar um usuário no banco de dados, enviar um e-mail e criptogramar a senha do usuário ao mesmo tempo, sem precisar esperar uma ação finalizar para iniciar a próxima.
+
+Outros pontos legais a se destacar do Node são as streams (permitem consumir dados de uma forma aos poucos, ler um arquivo de texto linha por linha e já começar a trabalhar com ele sem precisar a ler por completo) e worker threads (permitem trabalhar com todos os cors da CPU do processador para fazer ações diferentes dentro de um servidor Node).
+
+Em resumo, com o Node conseguimos trabalhar com JavaScript e fazer diversas coisas ao mesmo tempo, com o intuito de ganhar mais performance no nosso back-end.
+
 ---
 
 ## Comandos e Instalações
 
-Criando o projeto web react:
+**1) Criando o projeto web react:**
 
 ```
 yarn create react-app web --template typescript
@@ -318,6 +373,12 @@ Para manter o conceito de SPA, ou seja, sem ter que recarregar tudo ao acessar u
   <img src={studyIcon} alt="Estudar" />
    Estudar
 </Link>
+```
+
+**2) Criando o projeto Node JS:**
+
+```
+yarn create react-app web --template typescript
 ```
 
 ---
