@@ -271,10 +271,6 @@ Em breve.
 
 ## Conceitos do Backend
 
-<div align="center">
-    <img src=".github\como-funciona-o-back-end.png" width="100%"/>
-</div>
-
 #### MVC x API Rest:
 
 MVC é uma maneira tradicional de construção de backend que retorna o HTML junto do backend, feito muito no PHP, por exemplo. Mas utilizando React, não faz mais sentido utilizar dessa forma.

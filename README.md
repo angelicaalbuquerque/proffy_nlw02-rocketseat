@@ -65,7 +65,7 @@ Desenvolvemos a _Proffy_, plataforma de estudos online, que conecta alunos e pro
 ### 📚 Grade do curso
 
 <details>
-  <summary>Aula 01 | ReactJS e estrutura Web </summary>
+  <summary>Aula 01 | ReactJS e estrutura Web ✔️</summary>
 
 Acelerando a sua Evolução: Nessa primeira aula do NLW #2, você vai conhecer o método que vai acelerar a sua evolução em direção aos seus maiores objetivos como programador. Entraremos em detalhes, conhecendo cada pilar desse método e como você pode utiliza-lo para ir direto ao ponto, na direção certa.
 
@@ -97,10 +97,25 @@ Acelerando a sua Evolução: Nessa primeira aula do NLW #2, você vai conhecer o
 </details>
 
 <details>
-  <summary>Aula 02 | Olhando as oportunidades </summary>
+  <summary>Aula 02 | Back-end com Node.js </summary>
 
-- No segundo dia do NLW #2, você vai descobrir como acessar as melhores
-  oportunidades no mercado, que na maioria das vezes não são divulgadas.
+No segundo dia do NLW #2, você vai descobrir como acessar as melhores oportunidades no mercado, que na maioria das vezes não são divulgadas.
+
+- Ambiente de desenvolvimento;
+- Conceitos de back-end e Node.js;
+  - Como funciona o back-end?;
+  - Particularidades da API REST
+  - Por que Node.js?
+- Criando o projeto;
+- Explicando conceitos;
+  - Rotas e recursos;
+  - Parâmetros;
+- Identificando casos de uso;
+- Configurando conexão com o banco;
+- Criando tabelas no banco de dados;
+- Criação de aulas;
+- Listagem de aulas;
+- Criação e total de conexões.
 
 </details>
 
@@ -130,7 +145,7 @@ Acelerando a sua Evolução: Nessa primeira aula do NLW #2, você vai conhecer o
 ## 💻 Projeto
 
 <div align="center">
-    <img src=".github\capa.png" width="60%"/>
+    <img src=".github\proffy.png" width="100%"/>
 </div>
 
 Para celebrar o Dia Nacional do Profissional de Educação (06 de Agosto), o projeto desenvolvido foi uma plataforma de estudos online, onde é possível tanto se cadastrar como instrutor quanto encontrar vários professores para ensinar.
@@ -247,5 +262,5 @@ Feito com muito ☕ e 🖤 por Angélica Albuquerque
 </p>
 
 <p align="center">
-👋 
+<img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="25px"> 
 </p>
