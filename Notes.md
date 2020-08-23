@@ -435,6 +435,26 @@ Com isso, ao executar "yarn start", o console já mostra o console.log("Hello, W
 
 --respawn: toda vez que tivermos uma alteração no código, a aplicação restarta de forma automática. Só para de executar caso eu aperte control + C.
 
+#### Instalar o Express:
+
+Microframework que traz algumas funcionalidades prontas para conseguir dar um start na aplicação de uma forma mais rápida.
+
+```
+yarn add express
+```
+
+Ele é preciso ser importado para dentro do server.ts. Quando alguns pacotes não são feitos com typescript, como o express, é necessário rodar @types/nomedadependencia para parar de dar erro na importação. Neste caso:
+
+```
+yarn add @types/express -D
+```
+
+ou
+
+```
+npm install @types/express -D
+```
+
 ---
 
 ## Executando o projeto
@@ -456,11 +476,11 @@ _roda na http://localhost:3000/_
 #### Server
 
 ```
-yarn init -y
+yarn start
 ```
 
 ou
 
 ```
-npm init -y
+npm run start
 ```
