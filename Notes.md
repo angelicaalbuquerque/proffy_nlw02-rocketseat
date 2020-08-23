@@ -421,11 +421,19 @@ Script para realizar o start da aplicação. _tsnd é abreviação de ts-node-de
 
 ```
   "scripts": {
-    "start": "tsnd src/server.ts"
+    "start": "ts-node-dev --transpile-only --ignore-watch node_modules --respawn src/server.ts"
   },
 ```
 
 Com isso, ao executar "yarn start", o console já mostra o console.log("Hello, World)" que foi exrito no server.ts.
+
+##### Flags:
+
+--transpile-only: converter o código de TS para JS, acelerando o processo de execução da aplicação.
+
+--ignore-watch node_modules: para que o ts-node-dev não tente fazer conversão de código na node_modules.
+
+--respawn: toda vez que tivermos uma alteração no código, a aplicação restarta de forma automática. Só para de executar caso eu aperte control + C.
 
 ---
 
