@@ -1,5 +1,7 @@
 # Anotações
 
+## Gerais
+
 #### React:
 
 Biblioteca específica para construção de interface, a parte visual da aplicação, envolvendo, principalmente, CSS, HTML e JS.
@@ -21,7 +23,7 @@ Na Web, por exemplo, tem a biblioteca React DOM, que faz o React entender que a 
 
 Forma de adicionar tipagem ao código Javascript, auxiliando a produtividade, aumentando a experiência de desenvolvimento.
 
-## Estrutura que vem no projeto React
+## Estrutura do projeto React
 
 #### .gitignore:
 
@@ -87,11 +89,11 @@ Quando trabalhamos com a sintaxe de HTML dentro do JavaScript, chama-se JSX, que
 
 Typescript com XML.
 
-### Imagens no React:
+#### Imagens no React:
 
 Temos sempre que importá-las e nomeá-las com uma variável. Para passar no código HTML, no src, devemos passar entre {}.
 
-```Javascript
+```TS
 import React from "react";
 
 import logoImg from "../../assets/images/logo.svg";
@@ -318,11 +320,17 @@ Outros pontos legais a se destacar do Node são as streams (permitem consumir da
 
 Em resumo, com o Node conseguimos trabalhar com JavaScript e fazer diversas coisas ao mesmo tempo, com o intuito de ganhar mais performance no nosso back-end.
 
+#### **falamos sobre tudo o que precisávamos antes de começar a desenvolver a API**.
+
+## Identificação de casos de uso
+
+Antes de iniciar o desenvolvimento, é importante identificar quais são as funcionalidades que vou precisar.
+
 ---
 
 ## Comandos e Instalações
 
-**1) Criando o projeto web react:**
+### **1) Criando o projeto web react:**
 
 ```
 yarn create react-app web --template typescript
@@ -371,7 +379,7 @@ Para manter o conceito de SPA, ou seja, sem ter que recarregar tudo ao acessar u
 </Link>
 ```
 
-**2) Criando o server Node JS:**
+### **2) Criando o server Node JS:**
 
 Depois de criar a pasta server e rodar o comando yarn init -y (que adiciona uma dependência ao package.json), criamos a pasta src (onde fica todo o código da aplicação), com o server.ts.
 
@@ -455,7 +463,13 @@ ou
 npm install @types/express -D
 ```
 
-#### Conceitos de rotas:
+O express não entende JSON, então, depois de declarar a constante, é necessário escrever:
+
+```
+app.use(express.json());
+```
+
+#### Conceitos de rotas
 
 ##### Criação de rotas:
 
@@ -463,6 +477,8 @@ npm install @types/express -D
 import express from "express";
 
 const app = express();
+
+app.use(express.json());
 
 app.get("/users", (request, response) => {
   const users = [
@@ -503,13 +519,33 @@ Dentro da API de um backend, temos vários métodos que podemos utilizar. Os mai
 - **PUT** (atualizar uma informação existente);
 - **DELETE** (deletar informação existente).
 
+O navegador sempre que acessa um endereço faz a requisição sempre utilizando o método GET. Para utilizar os outros métodos e testar a aplicação, usamos o Insomnia, por exemplo.
+
+Importante lembrar que podemos ter a mesma rota e o mesmo recurso, porém para métodos diferentes.
+
 ##### Parâmetros:
+
+Quando fazemos uma requisição pra dentro do nosso backend / da nossa API, existem três tipos de parâmetros:
+
+- **Corpo (Request Body)**: Dados para criação ou atualização de um registro. Quando vamos criar um usuário e atualizar uma informação, os dados dessa informação que queremos criar e atualizar virão no corpo da requisição.
+
+  Request.body é o que uso para visualizar essa criação/atualização;
+
+- **Route Params**: Serve para identificar qual recurso quero atualizar ou deletar na rota. Quando vou atualizar ou deletar uma informação, é uma informação específica, um único usuário que quero atualizar/deletar.
+
+  O route params vem junto com a rota. Por exemplo, se eu quero deletar um usuário, seria: app.delete('/users/:id') --- os ":" servem para identificar que id é um parâmetro e não um pedaço da rota. Desse jeito, toda vez que eu chamar a rota users com o método delete ela precisa vir com um sufixo precedida com um id. Pra recuperar isso, utilizo request.params;
+
+- **Query Params**: Utilizado principalmente em paginação, filtros, ordenação, listagem... parâmetros não tão obrigatórios.
+
+  Por exemplo, estou listando todos os usuários, mas quero listar os usuários da página 2 e quero ordernar por nome. Esses parâmetros são enviados junto com a rota: http://localhost:3333/users?page=2&sort=name.
+
+  Tais parâmetros são acessados via request.query.
 
 ---
 
 ## Executando o projeto
 
-#### Web
+### Web
 
 ```
 yarn start
@@ -523,7 +559,7 @@ npm start
 
 _roda na http://localhost:3000_
 
-#### Server
+### Server
 
 ```
 yarn start
