@@ -371,7 +371,61 @@ Para manter o conceito de SPA, ou seja, sem ter que recarregar tudo ao acessar u
 </Link>
 ```
 
-**2) Criando o projeto (server) Node JS:**
+**2) Criando o server Node JS:**
+
+Depois de criar a pasta server e rodar o comando yarn init -y (que adiciona uma dependência ao package.json), criamos a pasta src (onde fica todo o código da aplicação), com o server.ts.
+
+#### Server.ts:
+
+Primeiro arquivo aberto quando precisar executar o servidor. Tudo vai partir dele, então é o principal arquivo da aplicação, que vai começar a definir todas as rotas da aplicação.
+
+#### Instalar o TypeScript com dependência de desenvolvimento:
+
+```
+yarn add typescript -D
+```
+
+ou
+
+```
+npm install typescript -D
+```
+
+Feito isso, é preciso criar o arquivo de configurações do TS, **tsconfig.json**, gerado de forma automática:
+
+```
+yarn tsc --init
+```
+
+ou
+
+```
+npx tsc --init
+```
+
+Nesse arquivo, mudamos o "target" para "es2017", pois acima dessa versão o Node ainda não entende.
+
+#### Instalar a lib ts-node-dev:
+
+Tal dependência executa o servidor e fica observando, caso tenha alguma alteração no script. Se tiver, ele restarta o servidor.
+
+Porque por padrão, quando executamos o Node, ele lê todo o servidor e fica executando. E se a gente fizer alguma alteração, a gente teria que parar o Node e executar de novo.
+
+```
+yarn add ts-node-dev -D
+```
+
+#### Scripts no package.json:
+
+Script para realizar o start da aplicação. _tsnd é abreviação de ts-node-dev._
+
+```
+  "scripts": {
+    "start": "tsnd src/server.ts"
+  },
+```
+
+Com isso, ao executar "yarn start", o console já mostra o console.log("Hello, World)" que foi exrito no server.ts.
 
 ---
 
