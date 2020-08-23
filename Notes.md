@@ -356,13 +356,67 @@ Onde manteremos toda a configuração da conexão com o banco de dados e outros 
 
 Para lidar com caminhos dentro do Node. É um módulo para conseguirmos direcionar um caminho, mostrar onde deve ficar um arquivo.
 
-#### dirname:
+##### dirname:
 
 Se referencia o diretório onde está o arquivo em que executo o dirname, no caso, o database.
 
-#### useNullAsDefault: true:
+##### useNullAsDefault: true:
 
 Passamos porque o SQLite, por padrão, não sabe o que tem que jogar no valor padrão nos campos que não forem preenchidos.
+
+#### migrations:
+
+Controlam a versão do banco de dados, como se fosse um git. Dentro delas, descrevemos exatamente o que queremos fazer dentro do banco (criar uma tabela nova, inserir, alterar e deletar campos etc).
+
+Quando uma outra pessoa pegar nosso código, a pessoa só precisa executar as migrations dentro do Knex, que automaticamente será identificado o que foi executado e o que não foi e, então, vai fazer as alterações no banco.
+
+#### knexfile.ts:
+
+Dentro da raiz do projeto, devemos criar o arquivo knexfile.ts (abaixo) e, dentro de database, a pasta migrations:
+
+```JS
+import path from "path";
+
+module.exports = {
+  client: "sqlite3",
+  connection: {
+    filename: path.resolve(__dirname, "src", "database", "database.sqlite"),
+  },
+  migrations: {
+    directory: path.resolve(__dirname, "src", "database", "migrations"),
+  },
+  useNullAsDefault: true,
+};
+```
+
+Como por padrão o Knex executa JavaScript e não TypeScript, no package.json vou sobreescrever o comando/método do Knex migrate:latest.
+
+#### Criação de tabelas:
+
+Dentro de database > migrations, crio a tabela de usuários (00_create_users.ts):
+
+- up: quais alterações queremos realizar no banco de dados. Onde faço alterações.
+- down: se algo deu errado, o que faço para voltar. Onde desfaço alterações.
+
+```TS
+import Knex from "knex";
+
+//crio a tabela users
+export async function up(knex: Knex) {
+  return knex.schema.createTable("users", (table) => {
+    table.increments("id").primary();
+    table.string("name").notNullable();
+    table.string("avatar").notNullable();
+    table.string("whatsapp").notNullable();
+    table.string("bio").notNullable();
+  });
+}
+
+//deleto a tabela users
+export async function down(knex: Knex) {
+  return knex.schema.dropTable("users");
+}
+```
 
 ---
 
@@ -587,6 +641,15 @@ Instalação do Knex (query builder, permite que escrevamos as queries pro SQL e
 yarn add knex sqlite3
 ```
 
+Como por padrão o Knex executa JavaScript e não TypeScript, no package.json vou sobreescrever o comando/método do Knex migrate:latest.
+
+```
+ "scripts": {
+    "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
+    "knex:migrate:roolback": "knex --knexfile knexfile.ts migrate:roolback"
+  },
+```
+
 ---
 
 ## Executando o projeto
@@ -618,3 +681,9 @@ npm run start
 ```
 
 _roda na http://localhost:3333_
+
+Migrations:
+
+```
+knex:migrate
+```
