@@ -326,6 +326,44 @@ Em resumo, com o Node conseguimos trabalhar com JavaScript e fazer diversas cois
 
 Antes de iniciar o desenvolvimento, é importante identificar quais são as funcionalidades que vou precisar.
 
+Geralmente, o layout é a forma mais clara de enxergar as funcionalidades do app.
+
+## Criação da configuração com o banco
+
+Utilizamos o SQL, um banco relacional. Usamos o SQLite, pois não precisamos instalar nada na nossa máquina.
+
+```TS
+import knex from "knex";
+import path from "path";
+
+const db = knex({
+  client: "sqlite3",
+  connection: {
+    filename: path.resolve(__dirname, "database.sqlite"),
+  },
+
+  useNullAsDefault: true,
+});
+
+export default db;
+```
+
+#### database:
+
+Onde manteremos toda a configuração da conexão com o banco de dados e outros arquivos. Onde também ficará o banco de dados.
+
+##### path:
+
+Para lidar com caminhos dentro do Node. É um módulo para conseguirmos direcionar um caminho, mostrar onde deve ficar um arquivo.
+
+#### dirname:
+
+Se referencia o diretório onde está o arquivo em que executo o dirname, no caso, o database.
+
+#### useNullAsDefault: true:
+
+Passamos porque o SQLite, por padrão, não sabe o que tem que jogar no valor padrão nos campos que não forem preenchidos.
+
 ---
 
 ## Comandos e Instalações
@@ -540,6 +578,14 @@ Quando fazemos uma requisição pra dentro do nosso backend / da nossa API, exis
   Por exemplo, estou listando todos os usuários, mas quero listar os usuários da página 2 e quero ordernar por nome. Esses parâmetros são enviados junto com a rota: http://localhost:3333/users?page=2&sort=name.
 
   Tais parâmetros são acessados via request.query.
+
+### **3) Configuração do banco de dados:**
+
+Instalação do Knex (query builder, permite que escrevamos as queries pro SQL em JavaScript) e SqLite3 (driver para que o Node consiga se conectar com o quando SQLite):
+
+```
+yarn add knex sqlite3
+```
 
 ---
 
