@@ -455,6 +455,56 @@ ou
 npm install @types/express -D
 ```
 
+#### Conceitos de rotas:
+
+##### Criação de rotas:
+
+```TS
+import express from "express";
+
+const app = express();
+
+app.get("/users", (request, response) => {
+  const users = [
+    {
+      name: "Diego",
+      age: 25,
+    },
+    {
+      name: "Emidio",
+      age: 22,
+    },
+  ];
+
+  return response.json(users);
+});
+
+//localhost:3333
+
+app.listen(3333);
+```
+
+##### Rotas:
+
+Dentro de cada rota, temos uma nomenclatura para cada coisa que é utilizada.
+
+Quando falamos de rota, cada rota é um endereço da aplicação. Se eu tenho uma rota que lista usuários, por exemplo, vou acessar _http://localhost:3333/users_; se é uma rota que lista contatos, _http://localhost:3333/contacts_ e assim por diante. Cada endereço desse é uma rota.
+
+##### Recursos:
+
+O que vem depois do endereço principal, ou seja, da URL base (no caso, _http://localhost:3333/_). Nos exemplos, os recursos que estamos acessando são _users_ e _contacts_.
+
+##### Métodos HTTP:
+
+Dentro da API de um backend, temos vários métodos que podemos utilizar. Os mais utilizados são:
+
+- **GET** (buscar/listar informação);
+- **POST** (cria nova informação);
+- **PUT** (atualizar uma informação existente);
+- **DELETE** (deletar informação existente).
+
+##### Parâmetros:
+
 ---
 
 ## Executando o projeto
@@ -471,7 +521,7 @@ ou
 npm start
 ```
 
-_roda na http://localhost:3000/_
+_roda na http://localhost:3000_
 
 #### Server
 
@@ -484,3 +534,5 @@ ou
 ```
 npm run start
 ```
+
+_roda na http://localhost:3333_
