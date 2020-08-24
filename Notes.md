@@ -650,11 +650,118 @@ Como por padrão o Knex executa JavaScript e não TypeScript, no package.json vo
   },
 ```
 
+Em seguida, rodo o comando para criação da tabela:
+
+```
+yarn knex:migrate
+```
+
+Quando a tabela é criada, podemos visualizar os dados dentro da tabela utilizando a extensão SQLite. Uma vez a extensão instalada, basta clicar sobre o arquivo e escolher "open database".
+
+Caso algo tenha sido criado errado, a opção mais viável é deletar o database.sqlite inteiro, ajuste as migrations e recrie com o yarn knex:migrate de novo.
+
+### Criação de routes.ts:
+
+Removo a rota que havia no server.ts e passo para um arquivo chamado routes.ts, onde irá abrigar todas as minhas rotas. Faço da seguinte forma:
+
+routes.ts:
+
+```TS
+import express from "express";
+
+const routes = express.Router();
+
+routes.get("/", (request, response) => {
+  return response.json({ message: "Hello, World" });
+});
+
+export default routes;
+```
+
+Server.ts:
+
+```TS
+import express from "express";
+import routes from "routes";
+
+const app = express();
+
+app.use(express.json());
+app.use(routes);
+
+app.listen(3333);
+```
+
+#### Conceito de transaction:
+
+Conceito do banco relacional que é, basicamente, fazer todas as operações do banco ao mesmo tempo e se alguma delas falhar, desfazer todas as que foram já feitas daquele mesmo contexto.
+
+Pra utilizar esse esquema, cria-se uma variável e ao inves de usar "db" nos inserts, uso essa variável.
+
+E antes de executar essa resposta, dou um "commit", ou seja, faço essas alterações no banco.
+
+```TS
+import express from "express";
+import db from "./database/connection";
+import converHourToMinutes from "./utils/convertHourToMinutes";
+
+const routes = express.Router();
+
+interface ScheduleItem {
+  week_day: number;
+  from: string;
+  to: string;
+}
+
+routes.post("/classes", async (request, response) => {
+  const { name, avatar, whatsapp, bio, subject, cost, schedule } = request.body;
+
+  const trx = await db.transaction();
+
+  const insertedUsersIds = await trx("users").insert({
+    name,
+    avatar,
+    whatsapp,
+    bio,
+  });
+
+  const user_id = insertedUsersIds[0];
+
+  const insertedClassesIds = await trx("classes").insert({
+    subject,
+    cost,
+    user_id,
+  });
+
+  const class_id = insertedClassesIds[0];
+
+  const classSchedule = schedule.map((scheduleItem: ScheduleItem) => {
+    return {
+      class_id,
+      week_day: scheduleItem.week_day,
+      from: converHourToMinutes(scheduleItem.from),
+      to: converHourToMinutes(scheduleItem.to),
+    };
+  });
+
+  await trx("class_schedule").insert(classSchedule);
+
+  await trx.commit();
+
+  return response.send();
+});
+
+export default routes;
+
+```
+
 ---
 
 ## Executando o projeto
 
 ### Web
+
+_roda na http://localhost:3000_
 
 ```
 yarn start
@@ -666,9 +773,9 @@ ou
 npm start
 ```
 
-_roda na http://localhost:3000_
-
 ### Server
+
+_roda na http://localhost:3333_
 
 ```
 yarn start
@@ -679,8 +786,6 @@ ou
 ```
 npm run start
 ```
-
-_roda na http://localhost:3333_
 
 Migrations:
 
