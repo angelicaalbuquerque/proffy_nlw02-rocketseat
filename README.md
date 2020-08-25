@@ -30,6 +30,10 @@
 <img alt="Last commit on GitHub" src="https://img.shields.io/github/last-commit/angelicaalbuquerque/proffy_nlw02-rocketseat?color=6942c3">
 </p>
 
+ <!-- <p align="center">
+  <a href="https://insomnia.rest/run/?label=NLW%201.0%20-%20Ecoleta&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fangelicaalbuquerque%2Fecoleta_nlwrocketseat%2Fmaster%2Fserver%2FInsomnia.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
+</p> -->
+
 <p align="center">🚧 Em andamento 🚧</p>
 
 ---
@@ -94,12 +98,14 @@ Acelerando a sua Evolução: Nessa primeira aula do NLW #2, você vai conhecer o
 - Estilização da página de cadastro;
 - Preparação de cadastro de horários.
 
+O foco foi a criação e estilização da estrutura do site.
+
 </details>
 
 <details>
-  <summary>Aula 02 | Back-end com Node.js </summary>
+  <summary>Aula 02 | Back-end com Node.js ✔️</summary>
 
-No segundo dia do NLW #2, você vai descobrir como acessar as melhores oportunidades no mercado, que na maioria das vezes não são divulgadas.
+Olhando as oportunidades: No segundo dia do NLW #2, você vai descobrir como acessar as melhores oportunidades no mercado, que na maioria das vezes não são divulgadas.
 
 - Ambiente de desenvolvimento;
 - Conceitos de back-end e Node.js;
@@ -115,28 +121,31 @@ No segundo dia do NLW #2, você vai descobrir como acessar as melhores oportunid
 - Criando tabelas no banco de dados;
 - Criação de aulas;
 - Listagem de aulas;
-- Criação e total de conexões.
+- Criação e total de conexões;
+- Adição de cors.
+
+Aprendemos a utilizar queries complexas no banco de dados; trabalhamos com transactions, relacionamento entre tabelas, migrations, try/catch, TypeScript e descobrimos um novo jeito de trabalhar no banco com a parte de horários.
 
 </details>
 
 <details>
-  <summary>Aula 03 | A Escolha da Stack </summary>
+  <summary>Aula 03 | Finalizando o Front-End</summary>
 
-- Qual a melhor tecnologia? É sobre isso que vamos falar no terceiro dia do NLW #2. Vamos apresentar os critérios de avaliação para decidir quais tecnologias fazem sentido para você, dado o seu momento atual, o seu contexto e os seus objetivos. Além disso, você entender por qual razão utilizamos a nossa stack e como ela pode multiplicar as oportunidades de uma forma enxuta sem perder o foco.
-
-</details>
-
-<details>
-  <summary>Aula 04 | Até 2 Anos em 2 Meses </summary>
-
-- O que você acha de evoluir em 2 meses o que muitos devs levam 2 anos? No quarto dia do NLW #2, vamos entender o problema que desacelera a evolução de muitos devs e as principais dificuldades que atrapalham a evolução. Você vai ver como evitar esses problemas e acelerar na direção certa.
+A Escolha da Stack: Qual a melhor tecnologia? É sobre isso que vamos falar no terceiro dia do NLW #2. Vamos apresentar os critérios de avaliação para decidir quais tecnologias fazem sentido para você, dado o seu momento atual, o seu contexto e os seus objetivos. Além disso, você entender por qual razão utilizamos a nossa stack e como ela pode multiplicar as oportunidades de uma forma enxuta sem perder o foco.
 
 </details>
 
 <details>
-  <summary>Aula 05 | A Milha Extra </summary>
+  <summary>Aula 04 | Estruturando o app Mobile</summary>
 
-- Na quinta e última aula do NLW #2, vamos mostrar como você pode ir além e se destacar, andando aquela milha extra. Vamos dar alguns sugestões práticas de como você pode fazer isso e aumentar incrivelmente os seus resultados.
+Até 2 Anos em 2 Meses: O que você acha de evoluir em 2 meses o que muitos devs levam 2 anos? No quarto dia do NLW #2, vamos entender o problema que desacelera a evolução de muitos devs e as principais dificuldades que atrapalham a evolução. Você vai ver como evitar esses problemas e acelerar na direção certa.
+
+</details>
+
+<details>
+  <summary>Aula 05 | Finalizando o app Mobile </summary>
+
+A Milha Extra: Na quinta e última aula do NLW #2, vamos mostrar como você pode ir além e se destacar, andando aquela milha extra. Vamos dar alguns sugestões práticas de como você pode fazer isso e aumentar incrivelmente os seus resultados.
 
 </details>
 
@@ -168,11 +177,45 @@ Você pode visualizar o layout do projeto Web através [deste link](https://www.
 
 ### Backend
 
-Em breve.
+```bash
+# Clone este repositório
+$ git clone https://github.com/angelicaalbuquerque/proffy_nlw02-rocketseat
+
+# Acesse o repositório
+$ cd nlw-02-proffy/server
+
+# Instale as dependências
+$ yarn install
+
+# Instale as Migrates
+$ yarn knex:migrate
+
+# Instale as Seeds iniciais do banco de dados
+$ yarn knex:seed
+
+# Execute a aplicação em modo de desenvolvimento
+$ yarn start dev
+
+# rodando na porta 3333
+```
 
 ### Front-end
 
-Em breve.
+```bash
+# Clone este repositório
+$ git clone https://github.com/angelicaalbuquerque/proffy_nlw02-rocketseat
+
+# Acesse este repositório
+$ cd nlw-02-proffy/web
+
+# Instale as dependências
+$ yarn install
+
+# Execute a aplicação
+$ yarn start
+
+# rodando na porta 3000
+```
 
 ### Mobile
 
