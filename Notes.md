@@ -660,7 +660,7 @@ Quando a tabela é criada, podemos visualizar os dados dentro da tabela utilizan
 
 Caso algo tenha sido criado errado, a opção mais viável é deletar o database.sqlite inteiro, ajuste as migrations e recrie com o yarn knex:migrate de novo.
 
-### Criação de routes.ts:
+#### Criação de routes.ts:
 
 Removo a rota que havia no server.ts e passo para um arquivo chamado routes.ts, onde irá abrigar todas as minhas rotas. Faço da seguinte forma:
 
@@ -753,6 +753,22 @@ routes.post("/classes", async (request, response) => {
 
 export default routes;
 
+```
+
+#### Conceito de controllers:
+
+Responsáveis por receber as requisições e devolver as respostas.
+
+#### Instalação do pacote cors:
+
+Esse cors permite que aplicações em endereços diferentes acessem nossa API.
+
+```Bash
+yarn add cors
+```
+
+```Bash
+yarn add @types/cors -D
 ```
 
 ---
