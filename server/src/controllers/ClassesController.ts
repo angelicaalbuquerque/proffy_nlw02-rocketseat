@@ -25,7 +25,10 @@ export default class ClassesController {
 
     const timeinMinutes = converHourToMinutes(time);
 
-    const classes = await db("classes").where("classes.subject", "=", subject);
+    const classes = await db("classes")
+      .where("classes.subject", "=", subject)
+      .join("users", "classes.user_id", "=", "users.id")
+      .select(["classes.*", "users.*"]);
 
     return response.json(classes);
   }
