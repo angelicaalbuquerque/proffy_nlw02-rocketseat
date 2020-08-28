@@ -133,6 +133,13 @@ Aprendemos a utilizar queries complexas no banco de dados; trabalhamos com trans
 
 A Escolha da Stack: Qual a melhor tecnologia? É sobre isso que vamos falar no terceiro dia do NLW #2. Vamos apresentar os critérios de avaliação para decidir quais tecnologias fazem sentido para você, dado o seu momento atual, o seu contexto e os seus objetivos. Além disso, você entender por qual razão utilizamos a nossa stack e como ela pode multiplicar as oportunidades de uma forma enxuta sem perder o foco.
 
+- Estruturando a página de cadastro;
+- Estilizando a página de cadastro;
+- Preparando o cadastro de horários;
+- Carregando o total de conexões na Landing;
+- Cadastro de novas aulas;
+- Listagem de professores.
+
 </details>
 
 <details>
@@ -140,12 +147,36 @@ A Escolha da Stack: Qual a melhor tecnologia? É sobre isso que vamos falar no t
 
 Até 2 Anos em 2 Meses: O que você acha de evoluir em 2 meses o que muitos devs levam 2 anos? No quarto dia do NLW #2, vamos entender o problema que desacelera a evolução de muitos devs e as principais dificuldades que atrapalham a evolução. Você vai ver como evitar esses problemas e acelerar na direção certa.
 
+- Criando o projeto com Expo;
+- Executando a aplicação;
+- Particularidades do React Native;
+- Elementos
+- Estilização
+- Estruturando a Landing Page;
+- Estilizando a Landing Page;
+- Navegação da Landing Page;
+- Página de "Dar Aulas";
+- Páginas internas;
+- Navegação em abas;
+- Componente PageHeader;
+- Lista de professores.
+
 </details>
 
 <details>
   <summary>Aula 05 | Finalizando o app Mobile </summary>
 
 A Milha Extra: Na quinta e última aula do NLW #2, vamos mostrar como você pode ir além e se destacar, andando aquela milha extra. Vamos dar alguns sugestões práticas de como você pode fazer isso e aumentar incrivelmente os seus resultados.
+
+- Lista de professores;
+- Lista de favoritos;
+- Filtro de professores;
+- Conectando com a API;
+  - Total de conexões
+  - Lista de professores
+- Contato via WhatsApp;
+- Adicionando e removendo favoritos;
+- Listando favoritos.
 
 </details>
 
