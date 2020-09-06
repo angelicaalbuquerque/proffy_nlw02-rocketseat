@@ -77,3 +77,33 @@
 #page-teacher-form main footer button:hover {
   background: var(--color-secundary-dark);
 }
+
+@media (min-width: 700px) {
+  #page-teacher-form {
+    max-width: 100vw;
+  }
+
+  #page-teacher-form .page-header .header-content {
+    margin-bottom: 0;
+  }
+
+  #page-teacher-form main fieldset {
+    padding: 0 6.4rem;
+  }
+
+  #page-teacher-form main footer {
+    padding: 4rem 6.4rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  #page-teacher-form main footer p {
+    justify-content: space-between;
+  }
+
+  #page-teacher-form main footer button {
+    width: 20rem;
+    margin-top: 0;
+  }
+}
