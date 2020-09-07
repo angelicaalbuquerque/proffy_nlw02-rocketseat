@@ -23,6 +23,30 @@ Na Web, por exemplo, tem a biblioteca React DOM, que faz o React entender que a 
 
 Forma de adicionar tipagem ao código Javascript, auxiliando a produtividade, aumentando a experiência de desenvolvimento.
 
+#### map:
+
+Código javascript de estrutura de repetição que, basicamente, percorre as opções retornando algo lá de dentro.
+
+Para cada opção, vou executar/retornar alguma coisa. No caso, a tag HTML option com o conteúdo de label:
+
+```JS
+<select id={name} {...rest}>
+  {options.map((option) => {
+    return <option value={option.value}>{option.label}</option>;
+   })}
+</select>
+```
+
+Quando criamos uma estrutura de repetição no React, percorrendo um Array e retornando pra cada posição do array algum HTML, esse primeiro elemento que vem logo dentro do map precisa ter, obrigatoriamente, uma propriedade chamada key. Ou seja, é somente no primeiro elemento que vem dentro de um map, passando uma informação única que existe entre todas as opções, por exemplo, entre todas as opções, qual opção que existe de única? No caso, optamos por value, mas, geralmente, é o ID do usuário, CPF... isso ajuda o React a conseguir identificar os elementos em tela quando precisar modificá-los.
+
+```JS
+<select id={name} {...rest}>
+  {options.map((option) => {
+    return <option key={option.value} value={option.value}>{option.label}</option>;
+   })}
+</select>
+```
+
 ## Estrutura do projeto React
 
 #### .gitignore:
@@ -269,7 +293,116 @@ Propriedade automática do React que é qual conteúdo que escrevi dentro do com
 
 #### Estado:
 
-Em breve.
+Sempre que precisarmos manipular um valor através de uma ação do usuário, de dentro do componente, vamos criar um estado.
+
+Com o React, diferente do JS tradicional, quando criamos uma interface estamos criando uma interface de maneira declarativa, ou seja, a interface é montada a partir do JavaScript/das informações que damos para ela.
+
+Imagine que eu tenha um array de agendamento, com dois itens. No React, em vez de eu criar divs na mão, colocar um append, um innerHTML para mostrar outro item, eu coloco os itens a mais dentro de posições desse array.
+
+Porém, o React não fica observando variáveis comuns para saber quando elas são alteradas para, então, mostrar as novas informações em tela. Ele só observa se elas forem criadas utilizando o conceito de estado.
+
+##### useState:
+
+Para o conceito de estado ser aplicado, preciso importar do React o useState.
+
+Crio a variável com o useState e dentro desse parâmetro eu passo o valor inicial:
+
+```TS
+function TeacherForm() {
+  const [scheduleItems] = useState([
+    { week_day: 0, from: "8:00 AM", to: "4:00 PM" },
+    { week_day: 2, from: "10:00 AM", to: "6:00 PM" },
+  ]);
+  ...
+```
+
+##### imutabilidade:
+
+Quando utilizamos estado do React, não podemos fazer alterações _diretamente_ nas variáveis do estado, seguindo o conceito de **imutabilidade**: as variáveis, depois que são criadas dentro do React, não são "modificáveis".
+
+O useState retorna como segunda posição desse array uma função que vai substituir o valor do scheduleItems. É essa função que será utilizada em addNewScheduleItem, por exemplo.
+
+```TS
+function TeacherForm() {
+  const [scheduleItems, setScheduleItems] = useState([
+    { week_day: 0, from: "8:00 AM", to: "4:00 PM" },
+    { week_day: 2, from: "10:00 AM", to: "6:00 PM" },
+  ]);
+
+  function addNewScheduleItem() {
+    setScheduleItems();
+  }
+```
+
+Seguindo o conceito de imutabilidade, se eu quero incluir um novo item dentro do array sendo que essa função vai substituir o que já existe dentro do array, preciso copiar o array que já tenho e incluir uma nova informação dentro dele.
+
+Para fazer isso da maneira mais fácil, eu crio um array novo e uso o _spread operator_, que vai copiar todos os itens dentro do array, e depois eu adiciono o novo item. Dessa forma, o React vai entender que a variável foi alterada e toda vez que a função for clicada, o React vai criar um novo horário
+
+```TS
+import React, { useState } from "react";
+import PageHeader from "../../components/PageHeader";
+import Input from "../../components/Input";
+import Textarea from "../../components/Textarea";
+import Select from "../../components/Select";
+import warningIcon from "../../assets/images/icons/warning.svg";
+import "./styles.css";
+
+function TeacherForm() {
+  const [scheduleItems, setScheduleItems] = useState([
+    { week_day: 0, from: "8:00 AM", to: "4:00 PM" },
+    { week_day: 2, from: "10:00 AM", to: "6:00 PM" },
+  ]);
+
+  function addNewScheduleItem() {
+    setScheduleItems([
+      ...scheduleItems,
+      {
+        week_day: 0,
+        from: "",
+        to: "",
+      },
+    ]);
+  }
+
+  return (
+      <main>
+        <fieldset>
+          <legend>
+            Horários disponíveis
+            <button type="button" onClick={addNewScheduleItem}>
+              + Novo horário
+            </button>
+          </legend>
+
+          {scheduleItems.map((scheduleItem) => {
+            return (
+              <div key={scheduleItem.week_day} className="schedule-item">
+                <Select
+                  name="week_day"
+                  label="Dia da semana"
+                  options={[
+                    { value: "0", label: "Domingo" },
+                    { value: "1", label: "Segunda-feira" },
+                    { value: "2", label: "Terça-feira" },
+                    { value: "3", label: "Quarta-feira" },
+                    { value: "4", label: "Quinta-feira" },
+                    { value: "5", label: "Sexta-feira" },
+                    { value: "6", label: "Sábado" },
+                  ]}
+                />
+
+                <Input name="from" label="Das" type="time" />
+                <Input name="to" label="Até" type="time" />
+              </div>
+            );
+          })}
+        </fieldset>
+      </main>
+  );
+}
+
+export default TeacherForm;
+```
 
 ## Conceitos do Backend
 
