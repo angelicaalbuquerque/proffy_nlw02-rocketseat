@@ -404,6 +404,14 @@ function TeacherForm() {
 export default TeacherForm;
 ```
 
+##### useEffect:
+
+Função que possui dois parâmetros, uma função e um array de dependências que é, basicamente, quando eu quero disparar essa primeira função. E eu passo o array que quando as informações forem alteradas vão disparar essa função novamente.
+
+##### preventDefault:
+
+Previne o comportamento padrão de um formulário quando realiza o submit, ou seja, não acontece o redirecionamento.
+
 ## Conceitos do Backend
 
 #### MVC x API Rest:
@@ -902,6 +910,32 @@ yarn add cors
 
 ```Bash
 yarn add @types/cors -D
+```
+
+### **4) Conectando back-end com front-end:**
+
+Rodar o front-end e o servidor, utilizando:
+
+```Bash
+ yarn start
+```
+
+#### Instalação do pacote Axios:
+
+```Bash
+ yarn add axios
+```
+
+Vai facilitar a consumação de APIs externas, basicamente conseguir fazer as requisições da mesma forma que o Insomnia faz.
+
+Feito a instalação, crio uma pasta services (em src) e um arquivo chamado api.ts com o endereço do backend sem a parte do recurso, só com endereço base que vai se repetir em todas as rotas:
+
+```TS
+import axios from "axios";
+
+const api = axios.create({
+  baseURL: "http://localhost:3333"
+});
 ```
 
 ---
