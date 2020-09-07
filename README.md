@@ -129,13 +129,14 @@ Aprendemos a utilizar queries complexas no banco de dados; trabalhamos com trans
 </details>
 
 <details>
-  <summary>Aula 03 | Finalizando o Front-End</summary>
+  <summary>Aula 03 | Finalizando o Front-End ✔️</summary>
 
 A Escolha da Stack: Qual a melhor tecnologia? É sobre isso que vamos falar no terceiro dia do NLW #2. Vamos apresentar os critérios de avaliação para decidir quais tecnologias fazem sentido para você, dado o seu momento atual, o seu contexto e os seus objetivos. Além disso, você entender por qual razão utilizamos a nossa stack e como ela pode multiplicar as oportunidades de uma forma enxuta sem perder o foco.
 
 - Estruturando a página de cadastro;
 - Estilizando a página de cadastro;
 - Preparando o cadastro de horários;
+- Conceitos de estado e imutabilidade;
 - Carregando o total de conexões na Landing;
 - Cadastro de novas aulas;
 - Listagem de professores.
@@ -310,24 +311,15 @@ O projeto foi desenvolvido com as seguintes tecnologias:
 - [ESLint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
 - [VS Code](https://code.visualstudio.com/)
-
 </details>
 
 ## 📬 Entre em contato!
 
-<div align="left">
-<a href="https://www.linkedin.com/in/angelica-albuquerque/" target="_blank" >
-  <img alt="Linkedin - Angélica Albuquerque" src="https://img.shields.io/badge/Linkedin--%23F8952D?style=social&logo=linkedin">
-</a> &nbsp;&nbsp;&nbsp;
-
-<a href="mailto:angelica.o.albuquerque@gmail.com" target="_blank" >
-  <img alt="Email - Angélica Albuquerque" src="https://img.shields.io/badge/Email--%23F8952D?style=social&logo=gmail">
-</a> &nbsp;&nbsp;&nbsp;
-
-<a href="https://twitter.com/angelica_oa/" target="_blank">
-  <img alt="Twitter - Angélica Albuquerque" src="https://img.shields.io/twitter/url?label=Twitter&style=social&url=https%3A%2F%2Ftwitter.com%2Fangelica_oa">
-</a>
-</div>
+<p align="left">
+  <a href="https://twitter.com/angelica_oa/" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/twitter.svg" alt="/twitter angelica_oa" height="30" width="30" /></a>&nbsp &nbsp
+  <a href="https://linkedin.com/in/angelica-albuquerque/" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/linkedin.svg" alt="Linkedin - Angélica Albuquerque" height="30" width="30" /></a>&nbsp &nbsp
+  <a href="mailto:angelica.o.albuquerque@gmail.com" target="blank"><img align="center" src="https://cdn.jsdelivr.net/npm/simple-icons@3.0.1/icons/gmail.svg" alt="Email - Angélica Albuquerque" height="30" width="30" /></a>
+</p>
 
 ---
 
