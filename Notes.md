@@ -938,6 +938,12 @@ const api = axios.create({
 });
 ```
 
+### **5) Criando o projeto Mobile**
+
+```Bash
+expo init mobile --template blank
+```
+
 ---
 
 ## Executando o projeto
@@ -974,4 +980,10 @@ Migrations:
 
 ```
 knex:migrate
+```
+
+### Mobile
+
+```
+yarn start
 ```
