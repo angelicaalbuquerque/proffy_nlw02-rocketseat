@@ -559,6 +559,94 @@ export async function down(knex: Knex) {
 }
 ```
 
+## Particularidades do React Native
+
+```TS
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <Text>Hello, World!!</Text>
+      <StatusBar style="auto" />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#fff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+});
+```
+
+Conseguimos reaproveitar 90% pelo menos da base de conhecimento de React para Web no React Native, aumentando a produtividade.
+
+### Semelhanças
+
+O componente é escrito da mesma forma como temos na Web: funções que retornam um código muito parecido com o HTML, o JSX.
+
+Toda parte de componentização, estados, propriedades e tudo que aprendemos no React para Web, vai ser aproveitado para o Native.
+
+### Diferenças
+
+Apesar de parecer muito com um HTML, não utilizamos as tags do HTML: div, p, h1, section, main, por exemplo. Usamos componentes pré-criados pelo pacote do React Native.
+
+A View representa um bloco, que, em analogia ao HTML, pode ser visto como section, main, div, header.
+
+E porque no HTML temos tantos blocos diferentes no Native só temos view?
+
+Porque no mobile não temos elementos com resultados/significado semântico. Não temos elementos de identificação de sidebar, header, footer, section... tudo é View. Então, tudo que for um bloco, será uma View e tudo que for um texto será um Text. E controlamos o fato dele ser negrito, itálico, riscado etc pela própria estilização.
+
+#### Estilização
+
+_**!!! Todos os elementos já vêm com display: flex por padrão e flex-direction: column.**_
+
+Dentro do React Native não possuímos Classes, Ids... Não vão existir arquivos ".CSS". No Native, usamos o StyleSheet, que é importado dentro do 'react-native', e é como se fosse um objeto no JavaScript.
+
+_Perceba no código acima o "container" que foi aplicado em style da View._
+
+No Native, não temos heranças de estilos. Se eu quiser estilizar uma tag/um elemento, eu tenho que adicionar um estilo particular para essse elemento.
+
+Por exemplo, adiciono o estilo "title" ao elemento e, dentro do "objeto" de estilização, faço a inclusão desse estilo, com atenção para a não utilização do hífen em propriedades (exemplo: background-color) por ser um código em JavaScript e não CSS. Onde seria um hífen, a gente troca a próxima letra por uma maiúscula:
+
+```ts
+import { StatusBar } from "expo-status-bar";
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+
+export default function App() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Hello, World!!</Text>
+      <StatusBar style="auto" />
+    </View>
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: "#555",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  title: {
+    fontSize: 40,
+    fontWeight: "bold",
+    color: "#FFF",
+  },
+});
+```
+
+Então, cada estilo no seu elemento e não herda nenhuma estilização superior a ele. Entretanto, o CSS é um pouco limitado: ele não possui gradiente, animações e grids.
+
 ---
 
 ## Comandos e Instalações
