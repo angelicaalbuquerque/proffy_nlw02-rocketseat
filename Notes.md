@@ -601,7 +601,24 @@ A View representa um bloco, que, em analogia ao HTML, pode ser visto como sectio
 
 E porque no HTML temos tantos blocos diferentes no Native só temos view?
 
-Porque no mobile não temos elementos com resultados/significado semântico. Não temos elementos de identificação de sidebar, header, footer, section... tudo é View. Então, tudo que for um bloco, será uma View e tudo que for um texto será um Text. E controlamos o fato dele ser negrito, itálico, riscado etc pela própria estilização.
+Porque no mobile não temos elementos com resultados/significado semântico. Não temos elementos de identificação de sidebar, header, footer, section, SEO... tudo é View. Então, tudo que for um bloco, será uma View e tudo que for um texto será um Text. E controlamos o fato dele ser negrito, itálico, riscado etc pela própria estilização.
+
+##### View x Fragmet
+
+A View cria um elemento adicional à tela. Mas tem uma forma de fazer um agrupamento por volta de elementos sem produzir nada visual, no fim das contas, na tela.
+
+Faço isso criando tags sem conteúdo, que são tipo divs, mas no final não são repassadas para o HTML, para o resultado gerado no final.
+
+```ts
+export default function App() {
+  return (
+    <>
+      <Landing />
+      <StatusBar style="auto" />
+    </>
+  );
+}
+```
 
 #### Estilização
 
@@ -611,7 +628,7 @@ Dentro do React Native não possuímos Classes, Ids... Não vão existir arquivo
 
 _Perceba no código acima o "container" que foi aplicado em style da View._
 
-No Native, não temos heranças de estilos. Se eu quiser estilizar uma tag/um elemento, eu tenho que adicionar um estilo particular para essse elemento.
+No Native, não temos heranças de estilos. Se eu quiser estilizar uma tag/um elemento, eu tenho que adicionar um estilo particular para essse elemento. Ou seja: cada estilo em seu elemento.
 
 Por exemplo, adiciono o estilo "title" ao elemento e, dentro do "objeto" de estilização, faço a inclusão desse estilo, com atenção para a não utilização do hífen em propriedades (exemplo: background-color) por ser um código em JavaScript e não CSS. Onde seria um hífen, a gente troca a próxima letra por uma maiúscula:
 
@@ -647,7 +664,11 @@ const styles = StyleSheet.create({
 
 Então, cada estilo no seu elemento e não herda nenhuma estilização superior a ele. Entretanto, o CSS é um pouco limitado: ele não possui gradiente, animações e grids.
 
----
+#### Imagens
+
+Diferente da Web, por padrão o React Native não lê SVG; apesar de haver pacote para essa leitura (expo install react-native svg), há outros passos para serem feitos e por isso é uma boa optar por PNG.
+
+## O React Native faz a escolha da densidade de pixels, só preciso exportar as imagens, por exemplo, como "background.png", "background@2x.png" e "background3x.png".
 
 ## Comandos e Instalações
 
@@ -1029,8 +1050,10 @@ const api = axios.create({
 ### **5) Criando o projeto Mobile**
 
 ```Bash
-expo init mobile --template blank
+expo init mobile
 ```
+
+_escolher template blank TypeScript_
 
 ---
 
