@@ -6,16 +6,19 @@ const styles = StyleSheet.create({
     backgroundColor: '#8257E5'
 
   },
+  
   topBar: {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
   },
+
   header:{
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between'
-  },  
+  }, 
+
   title: {
     fontFamily: 'Archivo_700Bold',
     fontSize: 24,
