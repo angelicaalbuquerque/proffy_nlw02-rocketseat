@@ -98,6 +98,10 @@ const styles = StyleSheet.create({
     fontFamily: 'Archivo_700Bold',
     fontSize: 16,
     marginLeft: 16
+  },
+
+  favorited: {
+    backgroundColor: '#e33d3d',
   }
 
 });
