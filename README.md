@@ -30,11 +30,9 @@
 <img alt="Last commit on GitHub" src="https://img.shields.io/github/last-commit/angelicaalbuquerque/proffy_nlw02-rocketseat?color=6942c3">
 </p>
 
- <!-- <p align="center">
-  <a href="https://insomnia.rest/run/?label=NLW%201.0%20-%20Ecoleta&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fangelicaalbuquerque%2Fecoleta_nlwrocketseat%2Fmaster%2Fserver%2FInsomnia.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
-</p> -->
-
-<p align="center">🚧 Em andamento 🚧</p>
+ <p align="center">
+  <a href="https://insomnia.rest/run/?label=NLW%202.0%20-%20Proffy&uri=https%3A%2F%2Fraw.githubusercontent.com%2Fangelicaalbuquerque%2Fproffy_nlw02-rocketseat%2Fmaster%2Fserver%2FInsomnia_Proffy.json" target="_blank"><img src="https://insomnia.rest/images/run.svg" alt="Run in Insomnia"></a>
+</p>
 
 ---
 
@@ -144,7 +142,7 @@ A Escolha da Stack: Qual a melhor tecnologia? É sobre isso que vamos falar no t
 </details>
 
 <details>
-  <summary>Aula 04 | Estruturando o app Mobile</summary>
+  <summary>Aula 04 | Estruturando o app Mobile ✔️</summary>
 
 Até 2 Anos em 2 Meses: O que você acha de evoluir em 2 meses o que muitos devs levam 2 anos? No quarto dia do NLW #2, vamos entender o problema que desacelera a evolução de muitos devs e as principais dificuldades que atrapalham a evolução. Você vai ver como evitar esses problemas e acelerar na direção certa.
 
@@ -165,7 +163,7 @@ Até 2 Anos em 2 Meses: O que você acha de evoluir em 2 meses o que muitos devs
 </details>
 
 <details>
-  <summary>Aula 05 | Finalizando o app Mobile </summary>
+  <summary>Aula 05 | Finalizando o app Mobile ✔️</summary>
 
 A Milha Extra: Na quinta e última aula do NLW #2, vamos mostrar como você pode ir além e se destacar, andando aquela milha extra. Vamos dar alguns sugestões práticas de como você pode fazer isso e aumentar incrivelmente os seus resultados.
 
@@ -195,11 +193,15 @@ Construído utilizando a metodologia _mobile-first_, esse projeto foi desenvolvi
 
 ### Web
 
-Em breve.
+<p align="center">
+  <img alt="Ecoleta" src=".github\Proffy_web.gif" width="80%">
+</p>
 
 ### Mobile
 
-Em breve.
+<p align="center">
+  <img alt="Ecoleta" src=".github\proffy-mobile.gif" width="40%">
+</p>
 
 ## 🔖 Layout
 
@@ -251,7 +253,24 @@ $ yarn start
 
 ### Mobile
 
-Em breve.
+```Bash
+# Clone este repositório
+$ git clone https://github.com/angelicaalbuquerque/ecoleta_nlwrocketseat
+
+# Acesse este repositório
+$ cd ecoleta-nlw/mobile
+
+# Instale as dependências
+$ yarn install
+
+# Execute a aplicação
+$ expo start
+
+# O Expo abrirá uma nova janela no navegador; escaneie o qrcode no terminal ou na página aberta pelo Expo
+
+# Caso tenha problema com as fontes, execute:
+$ expo install expo-font @expo-google-fonts/archivo @expo-google-fonts/poppins
+```
 
 ## 🚀 Tecnologias
 
@@ -264,10 +283,8 @@ O projeto foi desenvolvido com as seguintes tecnologias:
 - [Express](https://expressjs.com/)
 - [Typescript](https://www.typescriptlang.org/)
 - [TS-Node-Dev](https://www.npmjs.com/package/ts-node-dev)
-- [Celebrate](https://github.com/arb/celebrate)
 - [Cors](https://www.npmjs.com/package/cors)
 - [Hapi/Joi](https://www.npmjs.com/package/@types/hapi__joi)
-- [Multer](https://www.npmjs.com/package/multer)
 - [SQLite3](https://www.sqlite.org/index.html)
 - [KnexJS](http://knexjs.org/)
 - [ESLint](https://eslint.org/)
@@ -281,12 +298,8 @@ O projeto foi desenvolvido com as seguintes tecnologias:
 - [Axios](https://www.npmjs.com/package/axios)
 - [Typescript](https://www.typescriptlang.org/)
 - [React](https://pt-br.reactjs.org/)
-- [React Dropzone](https://github.com/react-dropzone/react-dropzone)
 - [React Icons](https://react-icons.netlify.com/#/)
 - [React Router](https://www.npmjs.com/package/react-router-dom)
-- [React Leaflet](https://react-leaflet.js.org/)
-- [Leaflet](https://leafletjs.com/)
-- [Expo MailComposer](https://docs.expo.io/versions/latest/sdk/mail-composer/)
 - [Expo](https://expo.io/)
 - [ESLint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
@@ -301,13 +314,10 @@ O projeto foi desenvolvido com as seguintes tecnologias:
 - [Typescript](https://www.typescriptlang.org/)
 - [Expo](https://expo.io/learn)
 - [Expo Google Fonts](https://github.com/expo/google-fonts)
-- [Expo Location](https://docs.expo.io/versions/latest/sdk/location/)
-- [Expo Mail Composer](https://docs.expo.io/versions/latest/sdk/mail-composer/)
 - [React](https://pt-br.reactjs.org/)
 - [React Native](https://reactnative.dev/)
 - [React Navigation](https://reactnavigation.org/)
 - [React Native Appearance](https://github.com/expo/react-native-appearance)
-- [React Native Picker Select](https://www.npmjs.com/package/react-native-picker-select)
 - [ESLint](https://eslint.org/)
 - [Prettier](https://prettier.io/)
 - [VS Code](https://code.visualstudio.com/)
