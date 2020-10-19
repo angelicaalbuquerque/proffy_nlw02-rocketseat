@@ -1102,6 +1102,20 @@ A navegação via drawer é "menu hamburguer", que abre ao lado.
 
 A navegação encadeada é quando tenho uma navegação dentro de outra. Por exemplo, uma navegação em abas dentro de uma navegação em pilha.
 
+_Conectando a API_
+
+```Bash
+yarn add axios
+```
+
+_(Lembrar de mudar o IP acessível na rede na baseURL, no arquivo api.ts)_
+
+_Storage_
+
+```Bash
+expo install @react-native-community/async-storage
+```
+
 ---
 
 ## Executando o projeto
