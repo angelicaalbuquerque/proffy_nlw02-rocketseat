@@ -33,21 +33,28 @@ const TeacherItem: React.FC<TeacherItemProps> = ({ teacher, favorited }) => {
   }
 
   async function handleToggleFavorite( ) {
+     const favorites = await AsyncStorage.getItem('favorites');
+     let favoritesArray = [];
+
+     if (favorites){
+      favoritesArray = JSON.parse(favorites);
+    }
+
     if (isFavorited) {
       //remover dos favoritos
+      const favoriteIndex = favoritesArray.findIndex((teacherItem: Teacher) => {
+        return teacherItem.id === teacher.id;
+      });
+
+      favoritesArray.splice(favoriteIndex, 1);
+      setIsFavorited(false);
     } else {
       //adicionar aos favoritos
-      const favorites = await AsyncStorage.getItem('favorites');
-      let favoritesArray = [];
-
-      if (favorites){
-        favoritesArray = JSON.parse(favorites);
-      }
       favoritesArray.push(teacher);
 
       setIsFavorited(true);
-      await AsyncStorage.setItem('favorites', JSON.stringify(favoritesArray));
     }
+    await AsyncStorage.setItem('favorites', JSON.stringify(favoritesArray));
   }
 
   return (
